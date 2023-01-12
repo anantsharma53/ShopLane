@@ -10,7 +10,7 @@ hr{
 }
 .HederSection{
     display: flex;
-    align-items: center;
+    
     justify-content: space-between;
     margin-left: 75px;
     margin-right: 75px;
@@ -28,13 +28,20 @@ hr{
     float: left;
     gap: 10px;
 }
-.collapse.navbar-collapse{
+
+/* .collapse.navbar-collapse{
     
     margin-left: 30%;
     margin-right: 20%;
     justify-content: space-between;
 
-}
+} */
+/* .navbar.navbar-expand-lg{
+    margin-left: 30%;
+    margin-right: 20%;
+    justify-content: space-between;
+    
+} */
 .navbar-nav.mr-auto{
     
     font-size: 20px;

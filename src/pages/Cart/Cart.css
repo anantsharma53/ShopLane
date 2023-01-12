@@ -4,7 +4,7 @@ aside {
     margin-left: 15px;
     float: right;
     font-style: italic;
-    background-color: lightgray;
+    background-color: rgb(230, 213, 213);
   }
 .cartDisplay{
     gap: 0.5px;
@@ -25,10 +25,10 @@ aside {
     margin-top: 12px ;
     padding: 5px;
     width: 24%;
-    border: 1px solid lightblue;
+    
     align-items: center;
     padding: 1rem;
-    background-color: lightgray;
+    background-color: rgb(245, 240, 240);
     border-radius: 0.5rem;
     align-items: center;
 }
@@ -40,4 +40,7 @@ aside {
     margin: 11px;
     width: 90%;
     
+}
+.btn.btn-warning.subtotal-container:hover{
+    background-color: none;
 }

@@ -72,9 +72,9 @@ function ProductCard(props) {
           </div>
           {
             changeBtn === false?(<button onClick={handleAddToCartEvent} className="btn btn-primary">
-            <i class="fa fa-shopping-cart" aria-hidden="false"></i> Add To Cart
+            <i class="fa fa-shopping-cart fa-2x"  aria-hidden="false"></i>  Add To Cart
           </button>):(<button onClick={handleRemoveToCart} className="btn btn-primary">
-          <i class="fa fa-shopping-cart" aria-hidden="true"></i> Remove To Cart
+          <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> Remove From Cart
                </button>)
           
            }

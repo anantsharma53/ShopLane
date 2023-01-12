@@ -38,8 +38,8 @@ function CartItem(props) {
       <span>{props.item.price}/pcs</span>
       </div>
       <div>
-        <button onClick={handelAddItemQuantity} className="btn btn-success">+</button>{' '}
-        <button onClick={handelRemoveQuantity} className="btn btn-success">-</button>
+        <button onClick={handelAddItemQuantity} className="cart btn btn-success">+</button>{' '}
+        <button onClick={handelRemoveQuantity} className="cart btn btn-success">-</button>
       </div>
       <p>{props.item.quantity}Pcs X {props.item.price} = {props.item.quantity * props.item.price}</p>
       <div className="DeleteItem">

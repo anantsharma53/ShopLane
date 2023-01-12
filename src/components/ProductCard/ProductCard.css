@@ -50,9 +50,9 @@ h2 {
  .item h4, .item p, .carousel .item ul {
 	margin-bottom: 5px;
 }
-.btn {
+.btn.btn-primary {
 	color: #7ac400;
-	font-size: 11px;
+	font-size:15px;
 	text-transform: uppercase;
 	font-weight: bold;
 	background: none;

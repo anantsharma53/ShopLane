@@ -1,0 +1,43 @@
+aside {
+    width: 30%;
+    padding-left: 15px;
+    margin-left: 15px;
+    float: right;
+    font-style: italic;
+    background-color: lightgray;
+  }
+.cartDisplay{
+    gap: 0.5px;
+}  
+  .left{
+    float:left;
+    width: 75%;
+}
+.btnWithToatalvalue{
+    margin-left: 73%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.right{
+    float:left;
+    margin-top: 12px ;
+    padding: 5px;
+    width: 24%;
+    border: 1px solid lightblue;
+    align-items: center;
+    padding: 1rem;
+    background-color: lightgray;
+    border-radius: 0.5rem;
+    align-items: center;
+}
+.subtotal{
+    display: flex;
+    justify-content: space-around;
+}
+.subtotal-container{
+    margin: 11px;
+    width: 90%;
+    
+}

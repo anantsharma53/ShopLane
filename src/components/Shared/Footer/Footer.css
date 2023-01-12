@@ -1,0 +1,12 @@
+
+
+.footer{
+    display: flex;
+    align-items: center;
+    
+    color: rgb(8, 8, 8);
+    
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}

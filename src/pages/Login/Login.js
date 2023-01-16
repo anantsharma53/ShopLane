@@ -6,8 +6,8 @@ function Login() {
   return (
     <div>
       <Header></Header>
-    <div className="login-container">
-      <div class="mb-3">
+    <div className="container mt-100">
+      <div class="mb-10">
         <label for="exampleFormControlInput1" class="form-label">
           Email address
         </label>

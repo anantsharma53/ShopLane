@@ -8,9 +8,7 @@ function Home() {
   //console.log("rerendering");
   const [products, setProducts] = useState([]);
   const [error, setError] = useState();
-    // const [count, setCount] = useState();
-  //   const [click2, setClick2] = useState(0);
-  // async call.
+ 
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -49,7 +47,6 @@ function Home() {
           ))}
         </div>
       </div>
-      
       <Footer />
     </div>
   );

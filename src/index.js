@@ -14,6 +14,7 @@ import Electronic from './pages/Electronic/Electronic';
 import Jewelery from './pages/Jewelery/Jewelery';
 import MenCloth from './pages/MenCloth/MenCloth';
 import WomenCloth from './pages/WomenCloth/WomenCloth';
+import ViewProduct from './pages/ViewProduct/ViewProduct';
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -36,9 +37,8 @@ root.render(
         <Route path="/jewelery/Cart" element={<Cart />}></Route>
         <Route path="/mencloth/Cart" element={<Cart />}></Route>
         <Route path="/womencloth/Cart" element={<Cart />}></Route>
-        <Route path="/register/Cart" element={<Cart />}></Route>
-        <Route path="/Login/Cart" element={<Cart />}></Route>
-        
+        <Route path="/viewproduct" element={<ViewProduct/>}></Route>
+        <Route path="/viewproduct/Cart" element={<ViewProduct/>}></Route>
 
       </Routes>
     </BrowserRouter>

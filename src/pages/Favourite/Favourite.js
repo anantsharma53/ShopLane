@@ -10,48 +10,54 @@ const FavCart = (props) => {
 
   return (
     items.length === 0 ? (
-      <div className="cart-empty">
+      
+      <div class="container-fluid  mt-80">
         <div><Header /></div>
-        <p className="lead fs-3">Your Favourit cart is empty!</p>
-        <div className="start-shopping">
-          <Link to="/">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="currentColor"
-              className="bi bi-arrow-left"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fillRule="evenodd"
-                d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"
-              />
-            </svg>
-            <span>Start Shopping</span>
-          </Link>
+        <div class="row">
+
+          <div class="col-md-10">
+
+            <div class="card">
+             
+              <div class="card-body cart">
+                <div class="col-sm-12 empty-cart-cls text-center">
+                  <img src="https://cdn.pixabay.com/photo/2016/03/31/18/34/bookmark-1294473_1280.png" 
+                  width="130" height="130" class="img-fluid mb-4 mr-3"/>
+                    <h3><strong>It's empty  here</strong></h3>
+                    <h4>Add Your Collection</h4>
+                    <Link to="/" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</Link>
+
+
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
         </div>
         <div><Footer /></div>
+
       </div>
     ) : (
-        <div>
-      <Header  />
-      <div className="container mt-3">
-        
-        <div className="row">
-          {items.map((p, i) => (
-            <div key={i} className="col-md-3">
-              <FavouriteItem 
-              item={p} 
-              key={i}/>
-            </div>
-          ))}
+      <div>
+        <Header />
+        <div className="container mt-3">
+
+          <div className="row">
+            {items.map((p, i) => (
+              <div key={i} className="col-md-3">
+                <FavouriteItem
+                  item={p}
+                  key={i} />
+              </div>
+            ))}
+          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
-    
-      )
+
+    )
   );
 }
 

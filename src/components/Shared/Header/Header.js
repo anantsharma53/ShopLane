@@ -2,7 +2,6 @@ import "./Header.css";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/fontawesome-free-regular";
-
 import { cartSelector } from "../../../reducers/cartReducer";
 import { Link } from "react-router-dom";
 

@@ -36,6 +36,9 @@ root.render(
         <Route path="/jewelery/Cart" element={<Cart />}></Route>
         <Route path="/mencloth/Cart" element={<Cart />}></Route>
         <Route path="/womencloth/Cart" element={<Cart />}></Route>
+        <Route path="/register/Cart" element={<Cart />}></Route>
+        <Route path="/Login/Cart" element={<Cart />}></Route>
+        
 
       </Routes>
     </BrowserRouter>

@@ -37,20 +37,7 @@ function Home() {
       <Header  />
       <div className="container mt-3">
         {error && <h2 className="mt-3">No Products to Show</h2>}
-        {/* <h2>{click}</h2>
-      <button
-        onClick={() => {
-          setClick(click + 1);
-        }}>
-        Click
-      </button>
-      <h2>{click2}</h2>
-      <button
-        onClick={() => {
-          setClick2(click2 + 1);
-        }}>
-        Click 2
-      </button> */}
+        
 
         <div className="row">
           {products.map((p, i) => (
@@ -62,6 +49,7 @@ function Home() {
           ))}
         </div>
       </div>
+      
       <Footer />
     </div>
   );

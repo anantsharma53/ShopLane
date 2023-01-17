@@ -6,9 +6,6 @@ import { add, cartSelector,addFav,removeFromCart,removeFromFavCart } from "../..
 import { useState } from 'react';
 import { Link,useNavigate } from 'react-router-dom';
 
-
-
-
 // props is an object which encapsulates all the attributes passed to component.
 function ProductCard(props) {
   const [changeColor, setChangeColor] =useState(false);

@@ -1,16 +1,56 @@
 import "./ProductSingle.css";
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { cartSelector } from '../../reducers/cartReducer';
+import { add, cartSelector, addFav, removeFromCart, removeFromFavCart, decreaseCart } from '../../reducers/cartReducer';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
-
+import { useState } from "react";
+import { useDispatch } from 'react-redux';
 
 function ProductSingle(props) {
     const items = useSelector(cartSelector).value;
     const location = useLocation();
     const { state } = useLocation(props);
     console.log(props);
+
+    const [changeColor, setChangeColor] = useState(false);
+    const [changeBtn, setchangeBtn] = useState(false);
+    const dispatch = useDispatch();
+
+    function handleAddToCartEvent() {
+        // using dispatch to send add action and payload.
+        dispatch(add());
+        setchangeBtn(!changeBtn);
+
+    }
+    function handleAddToFavourite() {
+        if (!changeColor) {
+            setChangeColor(!changeColor)
+            dispatch(addFav());
+        } else {
+            setChangeColor(!changeColor)
+            dispatch(removeFromFavCart());
+        }
+
+        // using dispatch to send add action and payload.
+
+    }
+    function handleRemoveToCart() {
+
+        setchangeBtn(!changeBtn);
+        dispatch(removeFromCart());
+    }
+    const handelAddItemQuantity = () => {
+        //console.log("Ready to Increement Quantity")
+        dispatch(add(items))
+    }
+    const handelRemoveQuantity=()=>{
+        //console.log("Ready to Reduce Quantity")
+        // using dispatch to send remove action and payload.
+    
+        dispatch(decreaseCart(items));
+      }
+
 
     return (
         <div>
@@ -22,8 +62,8 @@ function ProductSingle(props) {
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="images p-3">
-                                        <div class="text-center "> <img  src="https://i.imgur.com/Dhebu4F.jpg" class="img-fluid"  /> </div>
-                                        
+                                        <div class="text-center "> <img src="https://i.imgur.com/Dhebu4F.jpg" class="img-fluid" /> </div>
+
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -47,7 +87,26 @@ function ProductSingle(props) {
                                              <input type="radio" name="size" value="XL"/> <span>XL</span> </label> <label class="radio"> 
                                              <input type="radio" name="size" value="XXL"/> <span>XXL</span> </label>
                                         </div> */}
-                                        <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+                                        <div class="cart mt-4 align-items-center">
+                                            <div>
+                                                <button onClick={handelAddItemQuantity} className="cart btn btn-success">+</button>{' '}
+                                                <button onClick={handelRemoveQuantity} className="cart btn btn-success">-</button>
+                                                {/* <p>{props.item.quantity}Pcs X {props.item.price} = {props.item.quantity * props.item.price}</p> */}
+                                            </div>
+                                            {/* <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> */}
+                                            {
+                                                changeBtn === false ? (<button onClick={handleAddToCartEvent} className="btn btn-primary">
+                                                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="false"></i>  Add To Cart
+                                                </button>) : (<button onClick={handleRemoveToCart} className="btn btn-primary">
+                                                    <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> Remove From Cart
+                                                </button>)
+
+                                            }
+                                            {
+                                                changeColor === false ? (<i onClick={handleAddToFavourite} className="fa fa-heart"></i>) : (
+                                                    <i onClick={handleAddToFavourite} className="bk fa fa-heart"></i>
+                                                )
+                                            } </div>
                                     </div>
                                 </div>
                             </div>

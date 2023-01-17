@@ -47,6 +47,7 @@ function CartItem(props) {
     
     </div>
     </div>
+   
     
     
 
@@ -54,3 +55,5 @@ function CartItem(props) {
 }
 
 export default CartItem;
+ 
+          

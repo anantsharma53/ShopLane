@@ -1,15 +1,14 @@
 
-/* 
+
 .footer{
+    background-color: #000000;
+    color: white;
     display: flex;
     align-items: center;
-    
-    color: rgb(8, 8, 8);
-    
-    position: relative;
-    width: 100%;
+    position: fixed;
     bottom: 0;
-} */
+    width: 100%;
+}
 .item1 {
     border: none;
     background-color: inherit;

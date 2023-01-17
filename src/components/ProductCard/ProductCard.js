@@ -4,8 +4,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { add, cartSelector,addFav,removeFromCart,removeFromFavCart } from "../../reducers/cartReducer";
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import ViewProduct from "../../pages/ViewProduct/ViewProduct";
+import { Link,useNavigate } from 'react-router-dom';
+
 
 
 
@@ -13,8 +13,8 @@ import ViewProduct from "../../pages/ViewProduct/ViewProduct";
 function ProductCard(props) {
   const [changeColor, setChangeColor] =useState(false);
   const[changeBtn,setchangeBtn]=useState(false);
-
-  const items=useSelector(cartSelector).value;
+  const nav=useNavigate();
+  // const items=useSelector(cartSelector).value;
   
   let product = props.item;
   const dispatch = useDispatch();
@@ -41,6 +41,12 @@ function ProductCard(props) {
     dispatch(removeFromCart(product.id));
     setchangeBtn(!changeBtn);
   }
+  function handledetails(product){
+    
+    nav("/ProductSingle",{state: {...product}})
+    console.log(product)
+
+  }
 
   
   
@@ -59,8 +65,14 @@ function ProductCard(props) {
           }
           
         </span>
-        <div className="img-box" >
-        <Link to="/viewproduct">See More</Link>
+        
+        <div className="img-box" onClick={(e)=>{
+          e.preventDefault();
+          e.stopPropagation();
+          handledetails(product);
+        }}>
+      
+       
           
          
           <img src={product.image} class="img-fluid" alt="iPhone"  />

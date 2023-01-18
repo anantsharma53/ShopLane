@@ -25,21 +25,21 @@ function Footer() {
                     </span>
                 </div>
                 <a
-                    href="#"
+                    href="https://twitter.com/"
                     target="_blank"
                     className="item3"
                 >
                     <FontAwesomeIcon icon={faTwitter} />
                 </a>
                 <a
-                    href="#"
+                    href="https://www.facebook.com/"
                     target="_blank"
                     className="item4"
                 >
                     <FontAwesomeIcon icon={faFacebook} />
                 </a>
                 <a
-                    href="#"
+                    href="https://youtube.com/"
                     target="_blank"
                     className="item5"
                 >

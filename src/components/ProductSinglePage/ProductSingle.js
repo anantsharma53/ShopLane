@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 function ProductSingle(props) {
     const items = useSelector(cartSelector).value;
     const location = useLocation();
-    const { state } = useLocation(props);
+    const { state } = useLocation();
     console.log(props);
 
     const [changeColor, setChangeColor] = useState(false);
@@ -44,12 +44,12 @@ function ProductSingle(props) {
         //console.log("Ready to Increement Quantity")
         dispatch(add(items))
     }
-    const handelRemoveQuantity=()=>{
+    const handelRemoveQuantity = () => {
         //console.log("Ready to Reduce Quantity")
         // using dispatch to send remove action and payload.
-    
+
         dispatch(decreaseCart(items));
-      }
+    }
 
 
     return (
@@ -62,19 +62,28 @@ function ProductSingle(props) {
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="images p-3">
-                                        <div class="text-center "> <img src="https://i.imgur.com/Dhebu4F.jpg" class="img-fluid" /> </div>
+                                        <div class="text-center ">
+                                            <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" class="img-fluid" alt="" />
+                                        </div>
 
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="product p-4">
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fa fa-long-arrow-left"></i>
+                                                <span class="ml-1">Back</span> </div>
+                                            <i class="fa fa-shopping-cart text-muted"></i>
                                         </div>
-                                        <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Orianz</span>
+                                        <div class="mt-4 mb-3">
+                                            <span class="text-uppercase text-muted brand">Orianz</span>
                                             <h5 class="text-uppercase">Men's slim fit t-shirt</h5>
-                                            <div class="price d-flex flex-row align-items-center"> <span class="act-price">$20</span>
-                                                <div class="ml-2"> <small class="dis-price">$59</small> <span>40% OFF</span> </div>
+                                            <div class="price d-flex flex-row align-items-center">
+                                                <span class="act-price">$20</span>
+                                                <div class="ml-2">
+                                                    <small class="dis-price">$59</small>
+                                                    <span>40% OFF</span> </div>
                                             </div>
                                         </div>
                                         <p class="about">Shop from a wide range of t-shirt from orianz. Pefect for your everyday use, you could pair it with a stylish pair of jeans or trousers complete the look.</p>

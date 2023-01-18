@@ -3,6 +3,7 @@ import Header from "../../components/Shared/Header/Header";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import "./WomenCloth.css";
 import { useEffect, useState } from "react";
+import BarLoader from "../../components/PageLoader/PageLoader";
 
 function WomenCloth() {
   //console.log("rerendering");
@@ -33,10 +34,22 @@ function WomenCloth() {
   // }
 
   return (
+    products.length === 0 ? (
+      
+      <div class="container-fluid  mt-80">
+        <div><Header /></div>
+        <BarLoader></BarLoader>
+        <div><Footer /></div>
+
+      </div>
+    ) : (
     <div>
       <Header  />
       <div className="container mt-3">
-        {error && <h2 className="mt-3">No Products to Show</h2>}
+        {error &&
+         //<h2 className="mt-3">No Products to Show</h2>
+         <BarLoader></BarLoader>
+         }
         
         <div className="row">
           {products.map((p, i) => (
@@ -50,7 +63,7 @@ function WomenCloth() {
       </div>
       <Footer />
     </div>
-  );
+  ));
 }
 
 export default WomenCloth;

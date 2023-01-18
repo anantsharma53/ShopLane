@@ -76,7 +76,7 @@ function ProductCard(props) {
         </div>
         <div className="thumb-content">
           <p>{product.title}</p>
-          <p class="item-price"><strike>&#8377;369.00</strike> <span>&#8377;{product.price}</span></p>
+          <p class="item-price"><strike>&#8377;{product.price*2}</strike> <span>&#8377;{product.price}</span></p>
           <div class="star-rating">
             <ul class="list-inline">
               <li class="list-inline-item"><i class="fa fa-star"></i></li>

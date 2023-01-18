@@ -3,6 +3,8 @@ import Header from "../../components/Shared/Header/Header";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import "./Jewelery.css";
 import { useEffect, useState } from "react";
+import Loader from './../../components/PageLoader/PageLoader';
+import BarLoader from "./../../components/PageLoader/PageLoader";
 
 function Jewelery() {
   //console.log("rerendering");
@@ -33,25 +35,23 @@ function Jewelery() {
   // }
 
   return (
+    products.length === 0 ? (
+      
+      <div class="container-fluid  mt-80">
+        <div><Header /></div>
+        <Loader></Loader>
+        <div><Footer /></div>
+
+      </div>
+    ) : (
     <div>
       <Header  />
       <div className="container mt-3">
-        {error && <h2 className="mt-3">No Products to Show</h2>}
-        {/* <h2>{click}</h2>
-      <button
-        onClick={() => {
-          setClick(click + 1);
-        }}>
-        Click
-      </button>
-      <h2>{click2}</h2>
-      <button
-        onClick={() => {
-          setClick2(click2 + 1);
-        }}>
-        Click 2
-      </button> */}
-
+        {error && 
+       <BarLoader></BarLoader>
+        //<h2 className="mt-3">No Products to Show</h2>
+        }
+        
         <div className="row">
           {products.map((p, i) => (
             <div key={i} className="col-md-3">
@@ -64,7 +64,7 @@ function Jewelery() {
       </div>
       <Footer />
     </div>
-  );
+  ));
 }
 
 export default Jewelery;

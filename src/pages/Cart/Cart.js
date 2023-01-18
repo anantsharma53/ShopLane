@@ -35,7 +35,7 @@ const Cart = (props) => {
               <div class="card-body cart">
                 <div class="col-sm-12 empty-cart-cls text-center">
                   <img src="https://static.vecteezy.com/system/resources/previews/004/999/463/original/shopping-cart-icon-illustration-free-vector.jpg"
-                    width="130" height="130" class="img-fluid mb-4 mr-3" />
+                    width="130" height="130" class="img-fluid mb-4 mr-3" alt=""/>
                   <h3><strong>Your Cart is Empty</strong></h3>
                   <h4>Add something to make me happy :)</h4>
                   <Link to="/" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</Link>

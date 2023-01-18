@@ -18,9 +18,9 @@ function Register() {
     })
       .then((res) => {
         console.log(res);
-        if (res.status == 200) {
+        if (res.status === 200) {
           navigate("/login");
-        } else if (res.status == 401) {
+        } else if (res.status === 401) {
           console.log("Unauthorized request");
         }
       })

@@ -1,21 +1,28 @@
 import "./FavouriteItem.css";
-import { Link } from "react-router-dom";
-import { useDispatch,useSelector } from 'react-redux';
-import { add,removeFromFavCart,cartSelector } from "../../reducers/cartReducer";
+
+import { useDispatch} from 'react-redux';
+import { add,removeFromFavCart,removeFromCart } from "../../reducers/cartReducer";
+import { useState } from 'react';
 
 function FavouriteItem(props) {
   
   let items = props.item;
-  
+  const[changeBtn,setchangeBtn]=useState(false);
 
   const dispatch = useDispatch()
   const handelRemoveFromFavCart = (item) => {
     dispatch(removeFromFavCart(items.id));
+    setchangeBtn(!changeBtn);
   }
   function handleAddToCartEvent() {
     // using dispatch to send add action and payload.
     dispatch(add(items));
+    setchangeBtn(!changeBtn);
 
+  }
+  function handleRemoveToCart(){
+    dispatch(removeFromCart(items.id));
+    setchangeBtn(!changeBtn);
   }
 
 
@@ -41,10 +48,10 @@ function FavouriteItem(props) {
           </div>
 
 
-          <button onClick={handleAddToCartEvent} className="btn btn-primary">
-            Add To Cart
-          </button>:
-          <h4 onClick={handelRemoveFromFavCart} className="navbar-brand removeBtn" >Remove From Cart</h4>
+          {changeBtn === false?( <button onClick={handleAddToCartEvent} className="btn btn-primary">
+          Add To Cart
+        </button>):(<button onClick={handleRemoveToCart} className="btn btn-primary" >Remove From Cart</button>)}
+        <h4 className="navbar-brand removeBtn"onClick={handelRemoveFromFavCart}>Remove From Favourite</h4>
 
           
         </div> </div>

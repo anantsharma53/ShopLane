@@ -1,6 +1,6 @@
 import "./Favourite.css";
 import Header from "../../components/Shared/Header/Header";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { cartSelector } from "../../reducers/cartReducer";
 import { Link } from "react-router-dom";
 import Footer from './../../components/Shared/Footer/Footer';
@@ -22,7 +22,7 @@ const FavCart = (props) => {
               <div class="card-body cart">
                 <div class="col-sm-12 empty-cart-cls text-center">
                   <img src="https://cdn.pixabay.com/photo/2016/03/31/18/34/bookmark-1294473_1280.png" 
-                  width="130" height="130" class="img-fluid mb-4 mr-3"/>
+                  width="130" height="130" class="img-fluid mb-4 mr-3" alt=""/>
                     <h3><strong>It's empty  here</strong></h3>
                     <h4>Add Your Collection</h4>
                     <Link to="/" class="btn btn-primary cart-btn-transform m-3" data-abc="true">continue shopping</Link>

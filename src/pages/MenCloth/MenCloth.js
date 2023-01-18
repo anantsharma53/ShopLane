@@ -3,12 +3,13 @@ import Header from "../../components/Shared/Header/Header";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import "./MenCloth.css";
 import { useEffect, useState } from "react";
+import BarLoader from "../../components/PageLoader/PageLoader";
 
 function MenCloth() {
   //console.log("rerendering");
   const [products, setProducts] = useState([]);
   const [error, setError] = useState();
-    // const [count, setCount] = useState();
+  // const [count, setCount] = useState();
   //   const [click2, setClick2] = useState(0);
   // async call.
 
@@ -27,44 +28,40 @@ function MenCloth() {
       });
   }, []);
 
-  // function notifyHome(count){
-  //   console.log("Home is notified");
-  //   setCount(count);
-  // }
+
 
   return (
-    <div>
-      <Header  />
-      <div className="container mt-3">
-        {error && <h2 className="mt-3">No Products to Show</h2>}
-        {/* <h2>{click}</h2>
-      <button
-        onClick={() => {
-          setClick(click + 1);
-        }}>
-        Click
-      </button>
-      <h2>{click2}</h2>
-      <button
-        onClick={() => {
-          setClick2(click2 + 1);
-        }}>
-        Click 2
-      </button> */}
+    products.length === 0 ? (
 
-        <div className="row">
-          {products.map((p, i) => (
-            <div key={i} className="col-md-3">
-              <ProductCard 
-              item={p} 
-              key={i}/>
-            </div>
-          ))}
-        </div>
+      <div class="container-fluid  mt-80">
+        <div><Header /></div>
+        <BarLoader></BarLoader>
+        <div><Footer /></div>
+
       </div>
-      <Footer />
-    </div>
-  );
+    ) : (
+      <div>
+        <Header />
+        <div className="container mt-3">
+          {error &&
+            //<h2 className="mt-3">No Products to Show</h2>
+            <BarLoader></BarLoader>
+          }
+
+
+          <div className="row">
+            {products.map((p, i) => (
+              <div key={i} className="col-md-3">
+                <ProductCard
+                  item={p}
+                  key={i} />
+              </div>
+            ))}
+          </div>
+        </div>
+        <Footer />
+      </div>
+    ));
 }
 
 export default MenCloth;

@@ -3,6 +3,7 @@ import Header from "../../components/Shared/Header/Header";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import "./Electronic.css";
 import { useEffect, useState } from "react";
+import BarLoader from './../../components/PageLoader/PageLoader';
 
 function Electronic() {
   //console.log("rerendering");
@@ -33,6 +34,15 @@ function Electronic() {
   // }
 
   return (
+    products.length === 0 ? (
+      
+      <div class="container-fluid  mt-80">
+        <div><Header /></div>
+        <BarLoader></BarLoader>
+        <div><Footer /></div>
+
+      </div>
+    ) : (
     <div>
       <Header  />
       <div className="container mt-3">
@@ -50,7 +60,7 @@ function Electronic() {
       </div>
       <Footer />
     </div>
-  );
+  ));
 }
 
 export default Electronic;

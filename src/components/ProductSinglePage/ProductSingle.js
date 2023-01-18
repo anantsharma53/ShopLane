@@ -1,17 +1,35 @@
 import "./ProductSingle.css";
-import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import { add, cartSelector, addFav, removeFromCart, removeFromFavCart, decreaseCart } from '../../reducers/cartReducer';
+import {  useParams } from 'react-router-dom';
+import { add, addFav, removeFromCart, removeFromFavCart, decreaseCart } from '../../reducers/cartReducer';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from 'react-redux';
+import BarLoader from "../PageLoader/PageLoader";
 
-function ProductSingle(props) {
-    const items = useSelector(cartSelector).value;
-    const location = useLocation();
-    const { state } = useLocation();
-    console.log(props);
+function ProductSingle() {
+    
+    const {id}=useParams();
+    
+    const [product,setProduct]=useState([]);
+    console.log(product);
+    useEffect(() => {
+
+        const getProduct = () => {
+            //setLoading(true);
+            fetch(`https://fakestoreapi.com/products/${id}`)
+                .then(res => res.json())
+                .then(json => {
+                    setProduct(json);
+                    //console.log(json);
+                    //setLoading(false);
+                })
+
+        }
+        getProduct();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
 
     const [changeColor, setChangeColor] = useState(false);
     const [changeBtn, setchangeBtn] = useState(false);
@@ -19,17 +37,17 @@ function ProductSingle(props) {
 
     function handleAddToCartEvent() {
         // using dispatch to send add action and payload.
-        dispatch(add());
+        dispatch(add(product));
         setchangeBtn(!changeBtn);
 
     }
     function handleAddToFavourite() {
         if (!changeColor) {
             setChangeColor(!changeColor)
-            dispatch(addFav());
+            dispatch(addFav(product));
         } else {
             setChangeColor(!changeColor)
-            dispatch(removeFromFavCart());
+            dispatch(removeFromFavCart(product.id));
         }
 
         // using dispatch to send add action and payload.
@@ -38,21 +56,21 @@ function ProductSingle(props) {
     function handleRemoveToCart() {
 
         setchangeBtn(!changeBtn);
-        dispatch(removeFromCart());
+        dispatch(removeFromCart(product.id));
     }
-    const handelAddItemQuantity = () => {
-        //console.log("Ready to Increement Quantity")
-        dispatch(add(items))
-    }
-    const handelRemoveQuantity = () => {
-        //console.log("Ready to Reduce Quantity")
-        // using dispatch to send remove action and payload.
-
-        dispatch(decreaseCart(items));
-    }
+    
 
 
     return (
+        product.length === 0 ? (
+      
+            <div class="container-fluid  mt-80">
+              <div><Header /></div>
+              <BarLoader></BarLoader>
+              <div><Footer /></div>
+      
+            </div>
+          ) : (
         <div>
             <Header></Header>
             <div class="container  md-5 ">
@@ -63,7 +81,7 @@ function ProductSingle(props) {
                                 <div class="col-md-6">
                                     <div class="images p-3">
                                         <div class="text-center ">
-                                            <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" class="img-fluid" alt="" />
+                                            <img src={product.image} class="img-fluid" alt="" />
                                         </div>
 
                                     </div>
@@ -72,36 +90,29 @@ function ProductSingle(props) {
                                     <div class="product p-4">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="d-flex align-items-center">
-                                                <i class="fa fa-long-arrow-left"></i>
-                                                <span class="ml-1">Back</span> </div>
-                                            <i class="fa fa-shopping-cart text-muted"></i>
+                                                {/* <i class="fa fa-long-arrow-left"></i>
+                                                <span class="ml-1">Back</span>  */}
+                                                </div>
+                                                {
+                                                changeColor === false ? (<i onClick={handleAddToFavourite} className="fa fa-heart"></i>) : (
+                                                    <i onClick={handleAddToFavourite} className="bk fa fa-heart"></i>
+                                                )
+                                            } 
                                         </div>
                                         <div class="mt-4 mb-3">
-                                            <span class="text-uppercase text-muted brand">Orianz</span>
-                                            <h5 class="text-uppercase">Men's slim fit t-shirt</h5>
+                                            <span class="text-uppercase text-muted brand">{product.category}</span>
+                                            <h5 class="text-uppercase">{product.title}</h5>
                                             <div class="price d-flex flex-row align-items-center">
-                                                <span class="act-price">$20</span>
+                                                <span class="act-price">{product.price}</span>
                                                 <div class="ml-2">
-                                                    <small class="dis-price">$59</small>
-                                                    <span>40% OFF</span> </div>
+                                                    <small class="dis-price">{product.price*2}</small>
+                                                    <span>50% OFF</span> </div>
                                             </div>
                                         </div>
-                                        <p class="about">Shop from a wide range of t-shirt from orianz. Pefect for your everyday use, you could pair it with a stylish pair of jeans or trousers complete the look.</p>
-                                        {/* <div class="sizes mt-5">
-                                            <h6 class="text-uppercase">Size</h6>
-                                             <label class="radio"> 
-                                             <input type="radio" name="size" value="S" checked/> <span>S</span> </label> <label class="radio"> 
-                                             <input type="radio" name="size" value="M"/> <span>M</span> </label> <label class="radio"> 
-                                             <input type="radio" name="size" value="L"/> <span>L</span> </label> <label class="radio"> 
-                                             <input type="radio" name="size" value="XL"/> <span>XL</span> </label> <label class="radio"> 
-                                             <input type="radio" name="size" value="XXL"/> <span>XXL</span> </label>
-                                        </div> */}
+                                        <p class="about">{product.description}</p>
+                                       
                                         <div class="cart mt-4 align-items-center">
-                                            <div>
-                                                <button onClick={handelAddItemQuantity} className="cart btn btn-success">+</button>{' '}
-                                                <button onClick={handelRemoveQuantity} className="cart btn btn-success">-</button>
-                                                {/* <p>{props.item.quantity}Pcs X {props.item.price} = {props.item.quantity * props.item.price}</p> */}
-                                            </div>
+                                            
                                             {/* <button class="btn btn-danger text-uppercase mr-2 px-4">Add to cart</button> */}
                                             {
                                                 changeBtn === false ? (<button onClick={handleAddToCartEvent} className="btn btn-primary">
@@ -111,11 +122,8 @@ function ProductSingle(props) {
                                                 </button>)
 
                                             }
-                                            {
-                                                changeColor === false ? (<i onClick={handleAddToFavourite} className="fa fa-heart"></i>) : (
-                                                    <i onClick={handleAddToFavourite} className="bk fa fa-heart"></i>
-                                                )
-                                            } </div>
+                                            
+                                            </div>
                                     </div>
                                 </div>
                             </div>
@@ -126,6 +134,6 @@ function ProductSingle(props) {
 
             <Footer></Footer>
         </div>
-    )
+    ))
 }
 export default ProductSingle;

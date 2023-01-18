@@ -14,7 +14,6 @@ import Electronic from './pages/Electronic/Electronic';
 import Jewelery from './pages/Jewelery/Jewelery';
 import MenCloth from './pages/MenCloth/MenCloth';
 import WomenCloth from './pages/WomenCloth/WomenCloth';
-
 import ProductSingle from './components/ProductSinglePage/ProductSingle';
 
 
@@ -37,8 +36,9 @@ root.render(
         <Route path="/jewelery/Cart" element={<Cart />}></Route>
         <Route path="/mencloth/Cart" element={<Cart />}></Route>
         <Route path="/womencloth/Cart" element={<Cart />}></Route>
-        <Route path="/ProductSingle" element={<ProductSingle />}></Route>
-        <Route path="/ProductSingle/Cart" element={<Cart />}></Route>
+        <Route path="/products/:id" element={<ProductSingle />}></Route>
+        <Route path="/electronics/Cart" element={<Cart />}></Route>
+        <Route path="/products/:id/Cart" element={<Cart />}></Route>
       </Routes>
     </BrowserRouter>
   </Provider>

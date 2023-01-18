@@ -47,14 +47,15 @@ function FavouriteItem(props) {
             </ul>
           </div>
 
-
+          <div className="favBtn">
           {changeBtn === false?( <button onClick={handleAddToCartEvent} className="btn btn-primary">
           Add To Cart
         </button>):(<button onClick={handleRemoveToCart} className="btn btn-primary" >Remove From Cart</button>)}
         <h4 className="navbar-brand removeBtn"onClick={handelRemoveFromFavCart}>Remove From Favourite</h4>
-
+        </div>
           
-        </div> </div>
+        </div> 
+        </div>
 
     </div>
 

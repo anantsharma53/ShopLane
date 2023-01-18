@@ -44,6 +44,13 @@ aside {
 .btn.btn-warning.subtotal-container:hover{
     background-color: none;
 }
+@media screen and (max-width:600px){
+    
+   .card{
+    
+   }
+
+}
 /* .gradient-custom {
     /* fallback for old browsers */
     /* background: #6a11cb; */

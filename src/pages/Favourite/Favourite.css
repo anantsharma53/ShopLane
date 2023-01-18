@@ -13,7 +13,7 @@
 }
 
 
-.card {
+/* .card {
     margin-bottom: 30px;
     border: 0;
     -webkit-transition: all .3s ease;
@@ -22,7 +22,7 @@
     border-radius: 8px;
     -webkit-box-shadow: 1px 5px 24px 0 rgba(68,102,242,.05);
     box-shadow: 1px 5px 24px 0 rgba(68,102,242,.05);
-}
+} */
 
 
 .card-header:first-child {
@@ -40,3 +40,17 @@
     background-color: #4466f2!important;
     border-color: #4466f2!important;
 }
+@media screen and (max-width:600px){
+    
+	.card{
+    margin-bottom: none;
+    border: 0;
+    
+    transition: none;
+    letter-spacing: none;
+    border-radius: none;
+    
+	 
+	}
+ 
+ }

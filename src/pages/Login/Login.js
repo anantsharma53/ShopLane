@@ -3,10 +3,14 @@ import Header from "../../components/Shared/Header/Header";
 import "./Login.css";
 
 function Login() {
+  function handleSubmit() {
+    alert("Successful Login")}
+   
+      
   return (
     <div>
       <Header></Header>
-    <div className="container mt-100">
+    <div className="login-container mt-100">
       <div class="mb-10">
         <label for="exampleFormControlInput1" class="form-label">
           Email address
@@ -27,7 +31,7 @@ function Login() {
           id="exampleFormControlInput1"
           placeholder="name@example.com"></input>
       </div>
-      <input className="btn btn-primary" value="Login" type="submit" />
+      <input className="btn btn-primary" value="Login" type="submit" onClick={handleSubmit} />
     </div>
     <Footer></Footer>
     </div>

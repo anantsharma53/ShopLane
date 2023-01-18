@@ -11,13 +11,13 @@ const FavCart = (props) => {
   return (
     items.length === 0 ? (
       
-      <div class="container-fluid  mt-80">
+      <div class=" mt-80">
         <div><Header /></div>
         <div class="row">
 
           <div class="col-md-10">
 
-            <div class="card">
+            <div class="">
              
               <div class="card-body cart">
                 <div class="col-sm-12 empty-cart-cls text-center">

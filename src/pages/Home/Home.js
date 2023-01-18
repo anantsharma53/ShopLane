@@ -26,10 +26,6 @@ function Home() {
       });
   }, []);
 
-  // function notifyHome(count){
-  //   console.log("Home is notified");
-  //   setCount(count);
-  // }
 
   return (
     products.length === 0 ? (

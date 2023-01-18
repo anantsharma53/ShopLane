@@ -24,7 +24,7 @@ const Cart = (props) => {
   console.log()
   return (
     items.length === 0 ? (
-      <div class="container-fluid  mt-80">
+      <div class=" mt-80">
         <div><Header /></div>
         <div class="row">
 

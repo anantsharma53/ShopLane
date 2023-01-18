@@ -9,6 +9,7 @@ function Register() {
   const navigate = useNavigate();
 
   function handleSubmit() {
+    alert("Successful SignUP")
     fetch("http://localhost:4100/api/auth/register", {
       method: "POST",
       body: JSON.stringify(user),
@@ -33,7 +34,7 @@ function Register() {
   return (
     <div>
       <Header></Header>
-    <div className="container">
+    <div className="Sign-container">
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">
           Email address

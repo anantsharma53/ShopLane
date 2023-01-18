@@ -5,7 +5,7 @@
     margin-bottom: 0;
 } */
 .card{
-    border:none
+    border:none;   
 }
     .product{
         background-color: #eee
@@ -55,4 +55,20 @@ label.radio input:checked+span{
     box-shadow: none
 }.cart i{
     margin-right: 10px
+}
+@media screen and (max-width:600px){
+    
+    .card{
+         
+        position: relative;
+        right: 60%;  
+    }
+    .row{
+        align-items: center;
+        position: relative;
+        margin-left: 0px;
+        margin-top: 0px;
+        margin-bottom: 0;
+    } 
+
 }
